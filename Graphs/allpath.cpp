@@ -6,6 +6,7 @@
 using namespace std;
 vector<list<int>> grp;
 unordered_set<int>s;// visited
+vector<vector<int>>result;
 void add_edges(int src, int des, bool dir = true)
 {
     grp[src].push_back(des);
@@ -14,21 +15,28 @@ void add_edges(int src, int des, bool dir = true)
         grp[des].push_back(src);
     }
 }
-bool dfs(int curr,int end){
-    if(curr==end) return true;
+void dfs(int curr,int end,vector<int>&path){
+    if(curr==end){
+        path.push_back(curr);
+        result.push_back(path);
+        path.pop_back();
+         return ;}
     s.insert(curr);// marked visited
+    path.push_back(curr);
     for (auto el : grp[curr])
     {
         if(s.count(el)) continue;
-        bool res=dfs(el, end);  
-        if(res) return true;
+        cout<<el<<endl;
+        dfs(el,end,path);
+        
     }
-    // s.erase(curr);
-    return false;
+    path.pop_back();
+    s.erase(curr);
+    return ;
 }
-bool anypath(int u, int v)
-{
-    return dfs(u,v);
+void allpath(int u,int v){
+    vector<int>path;
+    dfs(u,v,path);
 }
 void display()
 {
@@ -59,6 +67,7 @@ int main()
     display();
     int x,y;
     cin>>x>>y;
-    cout<<anypath(x,y);
+    allpath(x,y);
+    // cout<<anypath(x,y);
     return 0;
 }
