@@ -1,16 +1,16 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <list>
+#include <unordered_map>
 using namespace std;
 
-vector<list<pair<int,int>>> graph; // dest ,weight
+vector<unordered_map<int,int>> graph; // dest ,weight
 int v; // vertices
 void add_edges(int src, int des,int wt, bool bi__direction = true)
 {
-    graph[src].push_back({des,wt});
+    graph[src][des]=wt;
     if (bi__direction)
-        graph[des].push_back({src,wt});
+        graph[des][src]=wt;
 }
 void display()
 {
@@ -27,7 +27,7 @@ void display()
 int main()
 {
     cin >> v;
-    graph.resize(v, list<pair<int,int>>());
+    graph.resize(v, unordered_map<int,int>());
     int e;
     cin >> e;
     while (e--)
