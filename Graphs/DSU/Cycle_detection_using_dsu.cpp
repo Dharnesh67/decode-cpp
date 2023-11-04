@@ -7,9 +7,12 @@ int find(vector<int>&parent,int x ){
     // this method returns which group/cluster x belongs to
     return parent[x]= (parent[x]==x) ? x: find(parent,parent[x]);  // by path compression
 }
-void Union(vector<int>&parent,vector<int>&rank ,int a,int b){
+bool Union(vector<int>&parent,vector<int>&rank ,int a,int b){
     a=find(parent,a);
     b=find(parent,b);
+    if(a==b) {
+        return true; 
+    }
     if(rank[a]<rank[b]){
         parent[a]=b;
         rank[b]++;
@@ -18,6 +21,7 @@ void Union(vector<int>&parent,vector<int>&rank ,int a,int b){
         parent[b]=a;
         rank[a]++;
     }
+    return false;
    //thats all for disjoint set union 
 }
 int main(){
@@ -26,27 +30,20 @@ int main(){
     // n== number of elements  m==no of queries
     vector<int>parent(n+1);
     vector<int >rank(n+1,0);
-    for (int i = 0; i <n; i++)
+    for (int i = 0; i <=n; i++)
     {
        parent[i]=i;
 
     }
     while (m--)
     {
-        string s;
-        cin>>s;
-        if (s=="union")
-        {
             int x,y;
             cin>>x>>y;
-            Union(parent,rank,x,y);
-        }
-        else {
-            int x;
-            cin>>x;
-            cout<<find(parent,x)<<endl;
-        }
-        
+            bool b=Union(parent,rank,x,y);
+            if(b==1){
+                cout<<"CYCLE DETECTED";
+                 break;
+            }
     }
     
 

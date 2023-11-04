@@ -14,7 +14,7 @@ void add_edges(int src, int des, bool bi__direction = true)
 }
 void display()
 {
-    for (int i = 0; i < graph.size(); i++)
+    for (int i = 0; i <v; i++)
     {
         cout<<i<<"->";
         for (auto el : graph[i])

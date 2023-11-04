@@ -1,20 +1,20 @@
-#include<iostream>
-#include<vector>
-#include<unordered_set>
-#include<list>
+#include <iostream>   // TOPOLOGICAL SORT USING KAHN's ALGORITHMN
+#include <vector>   // TOPOLOGICAL SORT USING KAHN's ALGORITHMN
+#include <list>   // TOPOLOGICAL SORT USING KAHN's ALGORITHMN
+#include <queue>   // TOPOLOGICAL SORT USING KAHN's ALGORITHMN
+#include <unordered_set>   // TOPOLOGICAL SORT USING KAHN's ALGORITHMN
 using namespace std;
-class Solution {
-public:
-    int v;
-    vector<list<int>> graph;
-    unordered_set<int> visited;
-    vector<int>ans;
-    void add_edges(int a, int b)
-    {
-        graph[a].push_back(b);
-    }
-    void TopoBfs()
-    {
+int v;
+vector<list<int>> graph;
+unordered_set<int> visited;
+void add_edges(int a, int b, bool bidir = true)
+{
+    graph[a].push_back(b);
+    if (bidir)
+        graph[b].push_back(a);
+}
+void TopoBfs()
+{
     // Kahn's Algorithmn
     vector<int> indegree(v, 0);
     for (int i = 0; i < v; i++)
@@ -37,7 +37,7 @@ public:
     while (!q.empty())
     {
         int node = q.front();
-        ans.push_back(node);
+        cout << node << " ";
         q.pop();
         for (auto neighbour : graph[node])
         {
@@ -52,24 +52,20 @@ public:
             }
         }
     }
+}
+int main()
+{
+    cin >> v;
+    int e;
+    cin >> e;
+    visited.clear();
+    graph.resize(v, list<int>());
+    while (e--)
+    {
+        int x, y;
+        cin >> x >> y;
+        add_edges(x, y, false);
     }
-    bool canFinish(int numCourses, vector<vector<int>>& prerequisites) {
-        v = numCourses;
-        int x=0;
-        graph.resize(v,list<int>());
-        visited.clear();
-        while(x<prerequisites.size()){
-            int a=prerequisites[x][1];
-            int b=prerequisites[x][0];
-            add_edges(a,b);
-            x++;
-        }
-        TopoBfs();
-        if(ans.size()<v) return false;
-        return true;}
-};
-int main(){
-
-
-return 0;
+    TopoBfs();
+    return 0;
 }
