@@ -36,7 +36,7 @@ quicksort(a,pi+1,ei);
 int main(){
 vector<int>a;
 a={5,1,8,2,7,6,3,4};
-quicksort(a,0,a.size()-1);
+quicksort(a,0,a.size()-1);// sorting
 for (int i = 0; i <a.size(); i++)
 {
     cout<<a[i]<<" ";
