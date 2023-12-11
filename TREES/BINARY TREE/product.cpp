@@ -14,7 +14,6 @@ public:
         this->right = NULL;
     }
 };
-
 void display(Node *Root)
 {
     if (Root == NULL)

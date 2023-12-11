@@ -2,7 +2,7 @@
 #include<vector>
 using namespace std; // merge twoo sorted array 
 vector<int> merge(vector<int>&a,vector<int>&b,vector<int>&c){
-    int n =a.size();
+   int n =a.size();
    int m=b.size();
    int i=0;
    int j=0;
@@ -35,6 +35,7 @@ void mergesort(vector<int>&v){
     for (int i = 0; i <n1; i++)
     {
         a[i] =v[i];
+        
     }
     for(int i = 0;i<n2;i++){
         b[i]=v[i+n1];

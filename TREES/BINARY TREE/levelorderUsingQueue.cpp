@@ -16,7 +16,6 @@ public:
         this->right = NULL;
     }
 };
-
 void Levelorder(Node *root)
 {
     if (root == NULL)
@@ -24,11 +23,9 @@ void Levelorder(Node *root)
 
     queue<Node *> q;
     q.push(root);
-
     while (!q.empty())
     {
         int n = q.size();
-
         for (int i = 0; i < n; i++)
         {
             Node *current = q.front();

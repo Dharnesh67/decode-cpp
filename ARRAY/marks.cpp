@@ -2,7 +2,6 @@
 using namespace std;
 int main()
 {
-
     int mark[6];
     for (int i = 0; i < 6; i++)
     {
@@ -13,7 +12,7 @@ int main()
     {
         if (mark[i] < 35)
         {
-            cout << i << " ";
+            cout <<"Failed Student "<<i << " ";
         }
     }
 
