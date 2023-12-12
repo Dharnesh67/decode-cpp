@@ -14,19 +14,16 @@ int main()
         }
         cout << endl;
     }
-    cout << endl;
     for (int i = 0; i < 3; i++)
     {                                   // complex thing  refer to the screen shot of 1:39 2d array
         for (int j = i + 1; j < 3; j++) // this is called column wise printing
         {
-            int temp = a[i][j];
-            a[i][j] = a[j][i];
-            a[j][i] = temp;
+            swap(a[i][j],a[j][i]);
             // swap  the numbers
         }
-        cout << endl;
+        
     }
-
+cout << endl;
     for (int i = 0; i < 3; i++)
     {
         for (int j = 0; j < 3; j++)

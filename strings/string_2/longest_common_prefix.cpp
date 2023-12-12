@@ -1,7 +1,7 @@
 #include <iostream>
 #include <algorithm>
 #include<vector>
-using namespace std; // lleet 242
+using namespace std;
 int main()
 {
     vector<string>s; // leet code 14

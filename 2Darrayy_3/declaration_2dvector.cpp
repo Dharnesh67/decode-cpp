@@ -4,11 +4,11 @@ using namespace std;
 int main()
 {
     
-    vector<vector<int > >a(5,vector<int>(4,69));
+    vector<vector<int > >a(4,vector<int>(3,69));
     /*refer copy*/
-    for (int i = 0; i < 5; i++)
+    for (int i = 0; i < 4; i++)
     {
-        for (int j =0;j<4; j++)
+        for (int j =0;j<3; j++)
         {
           cout<<a[i][j]<<" ";
         }

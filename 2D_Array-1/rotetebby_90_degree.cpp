@@ -17,11 +17,12 @@ int main()
     cout << endl;
     for (int i = 0; i < 4; i++)
     {                                   // complex thing  refer to the screen shot of 1:39 2d array
-        for (int j = i + 1; j < 4; j++) // this is called column wise printing
+        for (int j = i+1; j < 4; j++) // this is called column wise printing
         {
-            int temp = a[i][j];
-            a[i][j] = a[j][i];
-            a[j][i] = temp;
+            // int temp = a[i][j];
+            // a[i][j] = a[j][i];
+            // a[j][i] = temp;
+            swap(a[i][j],a[j][i]);
             // swap  the numbers
         }
         cout << endl;

@@ -14,7 +14,7 @@ void permutation(string ans,string a){
     }
 }
 int main()
-{ 
+{  
     string a = "abc";
     permutation("",a);
 }

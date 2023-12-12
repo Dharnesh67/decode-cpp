@@ -21,7 +21,7 @@ int main()
                     grid[i][j] = 0;
             }
         }
-    }
+    } 
     // fliping of column where no of 0 is greater than number of 1
 
     for (int j = 0; j < c; j++)

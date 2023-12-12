@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <sstream>
 #include <vector>
-using namespace std; // lleet 242
+using namespace std;
 int main()
 {
 
