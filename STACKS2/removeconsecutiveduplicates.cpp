@@ -5,21 +5,21 @@ using namespace std;
 string remove(string s)
 {
     stack<char> st;
-    st.push(s[0]);
-    int i = 0;
-    while (i < s.length())
+    // st.push(s[0]);
+    int i = s.length()-1;
+    while (i>=0)
     {   
         if(st.top()!=s[i]){
             st.push(s[i]);
         }
-        i++;
+        i--;
     }
     string sn="";
     while(st.size()!=0) {
         sn+=st.top();
         st.pop();
     }
-    reverse(sn.begin(),sn.end());
+    // reverse(sn.begin(),sn.end());
     return sn;
 }
 int main()

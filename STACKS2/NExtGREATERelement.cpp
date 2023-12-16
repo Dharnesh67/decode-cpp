@@ -11,12 +11,12 @@ int main()
     }
     cout << endl;
     stack<int> st;
-    st.push(arr[n-1]);
+    st.push(arr[n - 1]);
     int ans[n];
-    ans[n-1] = -1;
-    for (int i = n-2; i >=0 ; i--)
+    ans[n - 1] = -1;
+    for (int i = n - 2; i >= 0; i--)
     {
-        while (st.size() > 0 and st.top()<arr[i])
+        while (st.size() > 0 and st.top() < arr[i])
         {
             st.pop();
         }
