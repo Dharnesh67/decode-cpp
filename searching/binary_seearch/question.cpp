@@ -8,7 +8,7 @@ int main()
     vector<int> v;
     v = {1,2,2,3,3,3,3,3,4,4,5,8,9};
     int low = 0, high = v.size() - 1;
-    int target = 24;
+    int target = 4;
     while (low <= high) // low<= high tak chalayenge
     {
         int mid = (low + high) / 2;

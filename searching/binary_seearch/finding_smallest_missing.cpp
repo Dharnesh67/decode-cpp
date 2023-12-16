@@ -1,22 +1,11 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
+#include <bits/stdc++.h>
 using namespace std;
-
 int main()
 {
     vector<int> v;
     v = {0, 1,2, 3, 4, 5, 8, 9, 12};
     int lo=0,hi =v.size()-1;
     int ans;
-    // for (int i = 0; i < v.size() - 1; i++)
-    // {
-    //     if (i != v[i]) ///O(n)
-    //     {
-    //         cout << i;
-    //         break;
-    //     }
-    // }
     while(lo<=hi){
         int mid = (lo+hi)/2;
         if(mid==v[mid]){
