@@ -31,8 +31,5 @@ int main()
     swap(v[v.size()-1],v[v.size()-2]);
     int n2=number(v);
     cout<<"the smallest possible sum is >>"<<n2+n1;
-    
-  
-
     return 0;
 }

@@ -14,7 +14,6 @@ using namespace std;
     sort(num2.begin(),num2.end());
     int m = num2.size();
     return num2[m/2];
-        
     }
 
 int main()

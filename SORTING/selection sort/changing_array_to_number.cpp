@@ -5,7 +5,7 @@ using namespace std;
 int main()
 {
     vector<int> v; 
-    v = {5, 3,1,4,2};
+    v = {5, 3,1,4,2,0,6};
     int num=0;
     for (int i = 0; i < v.size(); i++)
     {

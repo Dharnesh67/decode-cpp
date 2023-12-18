@@ -11,16 +11,15 @@ int main()
         for (int j = 0; j < s.length() - i - 1; j++)
         {
             if (s[j] > s[j + 1])
-            {     // bubble sort laga rakha h 
+            { // bubble sort laga rakha h
                 swap(s[j], s[j + 1]);
                 b = 1;
             }
         }
-        if (b=0)
+        if (b = 0)
         {
             break;
         }
-        
     }
 
     cout << s;

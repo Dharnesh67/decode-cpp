@@ -13,9 +13,6 @@ int main()  // no extra spacing space complexity o(1)
         {
             if (v[i] > v[i + 1])
             {
-                // int temp = v[i];
-                // v[i] = v[i + 1]; // swapping
-                // v[i + 1] = temp;
                 swap(v[i], v[i + 1]);
             }
         }

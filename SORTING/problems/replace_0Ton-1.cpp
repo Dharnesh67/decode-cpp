@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
+#include <algorithm>// sahi jagah mark karni h 
 using namespace std;
 int main()
 { /// mark value from 0 to n-1  while maintaining the order
@@ -11,9 +11,11 @@ int main()
     {
         int min =10000;
         int idx =-1;
-        for (int j = 0;j<6; j++)
+        for (int j = 0;j<6; j++) 
         {
-           if(a[j]==1){continue;}
+           if(a[j]==1){
+            continue;
+            }
            else{
             if (min>v[j])
             {

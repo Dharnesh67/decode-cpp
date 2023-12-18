@@ -21,7 +21,7 @@ int main() // no extra spacing space complexity o(1)
                 }
             }
         
-        if (b=1) // agar sorted h to break laga do har baar check hoga 
+        if (b==1) // agar sorted h to break laga do har baar check hoga 
         {
             break;
         }
