@@ -35,8 +35,8 @@ int minproduct(vector<int> &arr)
             return 0;
         else
         {
-            auto it = min_element(arr.begin(), arr.end());
-            return *it;
+            int it = *min_element(arr.begin(), arr.end());
+            return it;
         }
     }
     else

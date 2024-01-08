@@ -1,5 +1,4 @@
-#include <iostream>
-#include <climits>
+#include <bits/stdc++.h>
 using namespace std;
 class Node
 {
@@ -42,10 +41,11 @@ int sum1(Node *Root)
 {
     if (Root == NULL)
         return 0;
-    return sum1(Root->left) + sum1(Root->right) + Root->val;
-    //    int left = sum1(Root->left);
-    //    int right = sum1(Root->right);
-    //    int ans =Root->val+left+right;
+    // return sum1(Root->left) + sum1(Root->right) + Root->val;
+       int left = sum1(Root->left);
+       int right = sum1(Root->right);
+       int ans =Root->val+left+right;
+       return ans;
 }
 int size(Node *Root)
 {
@@ -81,6 +81,7 @@ int main()
     f->left = h;
     // g->left=h;
     display(a);
+    cout<<endl;
     cout << sum1(a);
     cout << endl;
     cout << size(a);
