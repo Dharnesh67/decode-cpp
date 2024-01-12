@@ -49,19 +49,23 @@ void leftboundary(Node* root){
     leftboundary(root->left);
     if(!root->left) leftboundary(root->right); // jab left null ho jaye tavhi right ko call karna h
 }
-void bottom(Node* root){ // leafs
-    if(root==NULL) return ;
-    if(root->left==NULL and root->right==NULL)cout<<root->val<<" ";
-    leftboundary(root->left);
-    leftboundary(root->right); // jab left null ho jaye tavhi right ko call karna h
+void bottom(Node* root) {
+    if (root == NULL) return;
+    bottom(root->left);
+    bottom(root->right);
+    if (!root->left and !root->right) cout << root->val << " "; // leaf nodes
 }
-void right(Node* root){ // leafs
-    if(root==NULL) return ;
-    if(root->left==NULL and root->right==NULL) return ;
-    cout<<root->val<<" ";
-    leftboundary(root->right);
-    if(!root->right) leftboundary(root->left); // jab left null ho jaye tavhi right ko call karna h
+
+void rightboundary(Node* root) {
+    if (root == NULL) return;
+    if (!root->left and !root->right) return; // Skip leaf nodes
+    rightboundary(root->right);
+    cout << root->val << " ";
+    if (!root->right) rightboundary(root->left);
+   
+  
 }
+
 int main()
 {///NULL ==INT MIN
     int arr[] = {1, 2, 3, 4, 5,6,7,8,9,10,11,12};
@@ -71,12 +75,9 @@ int main()
     cout<<endl;
     bottom(a);
     cout<<endl;
-    right(a);
+    rightboundary(a);
     // three steps 
     // LEFT TRAVERSAL
     // LEAF TRAVERSAL 
     // RIGHT TRAVERSAL
-
-
-
 }

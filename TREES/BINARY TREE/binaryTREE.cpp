@@ -17,9 +17,9 @@ int maxval(Node *Root)
 {
     if (Root == NULL)
         return INT_MIN;
-    int left = maxval(Root->left);
-    int right = maxval(Root->right);
-    return max(Root->val, max(left, right));
+    // int left = maxval(Root->left);
+    // int right = maxval(Root->right);
+    return max(Root->val, max( maxval(Root->left),  maxval(Root->right)));
 }
 int minval(Node *Root)
 {
@@ -34,18 +34,18 @@ void display(Node *Root)
     if (Root == NULL)
         return;
     cout << Root->val << " ";
-    display(Root->left);
-    display(Root->right);
+    if(Root->left)display(Root->left);
+   if(Root->right) display(Root->right);
 }
-int sum1(Node *Root)
+int sum1(Node *Root,int &ans)
 {
     if (Root == NULL)
         return 0;
     // return sum1(Root->left) + sum1(Root->right) + Root->val;
-       int left = sum1(Root->left);
-       int right = sum1(Root->right);
-       int ans =Root->val+left+right;
-       return ans;
+    //    int left = sum1(Root->left);
+    //    int right = sum1(Root->right);
+    //    int ans =Root->val+left+right;
+       return Root->val+sum1(Root->left,ans)+sum1(Root->right,ans);
 }
 int size(Node *Root)
 {
@@ -82,7 +82,8 @@ int main()
     // g->left=h;
     display(a);
     cout<<endl;
-    cout << sum1(a);
+    int ans=0;
+    cout << sum1(a,ans);
     cout << endl;
     cout << size(a);
     cout << endl;
