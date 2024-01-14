@@ -22,7 +22,13 @@ void display(Node *Root)
     display(Root->left);
     display(Root->right);
 }
-
+void inorder(Node *root)
+{
+    if(!root) return;
+    inorder(root->left);
+    cout<<root->val<<" ";
+    inorder(root->right);
+}
 int main()
 {
     Node *a = new Node(1);
@@ -40,5 +46,7 @@ int main()
     c->right = g;
     // g->left=h;
     display(a);
+    cout<< endl;
+    inorder(a);
     
 }
