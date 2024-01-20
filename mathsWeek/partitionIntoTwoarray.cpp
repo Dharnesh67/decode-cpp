@@ -21,3 +21,4 @@ int main(){
     if(b==0) cout<<"false";
     return 0;
 }
+//wrte the comment in the code

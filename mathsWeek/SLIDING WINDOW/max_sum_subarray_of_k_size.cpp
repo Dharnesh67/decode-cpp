@@ -1,5 +1,4 @@
-#include<iostream>
-#include<vector>
+#include<bits/stdc++.h>
 using namespace std;
 int main(){
     vector<int >a;
@@ -16,7 +15,7 @@ int i =1;
 int j =k;
 while(j<a.size()){
 int current=sum+a[j]-a[i-1];
-if(maxs<current) maxs =current;  // TC  = n-k
+maxs=max(maxs,current) ; // TC  = n-k
 i++;
 j++;
 sum =current; //changing previous sum;
