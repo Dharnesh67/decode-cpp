@@ -8,6 +8,10 @@ int main()
 {
     int x;
     cin >> x;
-    cout << __builtin_popcount(x);
+    for (int i = 0; i <=x; i++)
+    {
+      cout << __builtin_popcount(i)<<" ";
+    }
+    
     return 0;
 }

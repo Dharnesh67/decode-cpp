@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <climits>
 using namespace std;
-// dp based on n value
+// dp based on n value // bottom up dp 
 bool f(int k, int l, int n)
 {
     vector<bool> dp(1000007, 0);
@@ -13,13 +13,18 @@ bool f(int k, int l, int n)
     {
         if (i == k or i == l)
             continue;
-        // if(i-k<=0) continue;
-        // if(i-l<=0) continue;
-        /*choice hoti h neutral value ==1*/
         dp[i] = !(dp[i - 1] and ((i - k >= 1) ? dp[i - k] : 1) and ((i - l >= 1) ? dp[i - l] : 1));
     }
     return dp[n];
 }
+// vector<bool>dp; //  top down 
+// bool f(int k,int l,int n){
+//     if(n==k or n==l) return false;
+//     if(n>=1 and f(k,l,n-1)) return dp[n]=true;
+//     if(n>=k and f(k,l,n-k)) return dp[n]=true;
+//     if(n>=l and f(k,l,n-l)) return dp[n]=true;
+//     return dp[n]=flase;
+// }
 int main()
 {
     int k;

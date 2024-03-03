@@ -2,9 +2,8 @@
 using namespace std;
 #define ll long long int
 #define pp pair<int, int>
-vector<list<pp>> graph; // node,weight
-vector<int> via;
-void add_edge(int a, int b, int wt)
+vector<list<pp>> graph;//node,weight
+void add(int a, int b, int wt)
 {
     graph[a].push_back({b, wt});
     graph[b].push_back({a, wt});
@@ -13,7 +12,6 @@ unordered_map<int, int> Djikstra(int src, int n)
 {
     unordered_map<int, int> mp; // node,distance from src
     unordered_set<int> vis;
-
     priority_queue<pp, vector<pp>, greater<pp>> pq; // weight,node
     for (int i = 1; i <= n; i++)
     {
@@ -24,8 +22,7 @@ unordered_map<int, int> Djikstra(int src, int n)
     while (!pq.empty())
     {
         auto curr = pq.top();
-        if (vis.count(curr.second))
-        {
+        if(vis.count(curr.second)){
             pq.pop();
             continue;
         }
@@ -33,11 +30,9 @@ unordered_map<int, int> Djikstra(int src, int n)
         pq.pop();
         for (auto neigh : graph[curr.second])
         {
-            if (!vis.count(neigh.first) and mp[neigh.first] > neigh.second + mp[curr.second])
-            {
-                mp[neigh.first] = neigh.second + mp[curr.second];
-                pq.push({neigh.second + mp[curr.second], neigh.first});
-                via[neigh.first] = curr.second;
+            if(!vis.count(neigh.first) and mp[neigh.first]>neigh.second+mp[curr.second]){
+                 mp[neigh.first]=neigh.second+mp[curr.second];
+                 pq.push({neigh.second+mp[curr.second],neigh.first});
             }
         }
     }
@@ -47,31 +42,23 @@ int main()
 {
     int n, m;
     cin >> n >> m;
-    via.resize(n + 1);
-    graph.resize(n + 1, list<pp>());
+    graph.resize(n, list<pp>());
     while (m--)
     {
         int u, v, wt;
         cin >> u >> v >> wt;
-        add_edge(u, v, wt);
+        add(u, v, wt);
     }
     int src;
     cin >> src;
     unordered_map<int, int> sp = Djikstra(src, n); // shortest path  map
     for (auto x : sp)
     {
-        cout << x.first << " " << x.second << endl;
+        cout << x.first<<" "<< x.second << endl;
     }
     int dest;
     cin >> dest;
-    int temp = dest;
-    while (temp != src)
-    {
-        cout << temp << " <- ";
-        temp = via[temp];
-    }
-    cout <<src<<endl;
-    cout << "DISTANCE " << sp[dest];
+    cout <<"DISTANCE "<<sp[dest];
     return 0;
 }
 

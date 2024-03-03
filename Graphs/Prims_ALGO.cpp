@@ -1,8 +1,8 @@
 // create a pq  of pair<weight,curr>  and a unordered map
-// insert pq pair of <-1,src> int the pq
+// insert pq pair of <-1,src> into the pq
 // one by one remove the root elements of the pq
 // if the root element is already visited ,then we will just continue
-// we mark the weight of the pair int ans
+// we mark the weight of the pair into ans
 // update the mapping
 // go to every neighbour of the curr element,and only add those which are non visited and have lower weight proposition
 #include <bits/stdc++.h>
@@ -55,6 +55,38 @@ ll prims(int src, int n)
     }
     return result;
 }
+// function prims(src, numberOfNodes):
+//     priorityQueue pq
+//     visitedSet visited
+//     parentArray parent
+//     distanceMap distance
+
+//     for node in 1 to numberOfNodes:
+//         distance[node] = INFINITY
+//     distance[src] = 0
+
+//     pq.push({0, src})
+    
+//     totalNodes = 0
+//     totalCost = 0
+
+//     while totalNodes < numberOfNodes and not pq.isEmpty():
+//         currentNode = pq.pop()
+
+//         if visited.contains(currentNode):
+//             continue
+
+//         visited.insert(currentNode)
+//         totalNodes += 1
+//         totalCost += currentNode.cost
+
+//         for neighbor in graph[currentNode.node]:
+//             if not visited.contains(neighbor.node) and distance[neighbor.node] > neighbor.cost:
+//                 pq.push({neighbor.cost, neighbor.node})
+//                 parent[neighbor.node] = currentNode.node
+//                 distance[neighbor.node] = neighbor.cost
+
+//     return totalCost
 
 int main()
 {

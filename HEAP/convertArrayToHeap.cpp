@@ -21,6 +21,7 @@ public:
             if (c1 < n && v[c1] > v[largest])
             {
                 largest = c1;
+
             }
 
             // Check if right child exists and is greater than the current largest
@@ -60,6 +61,8 @@ public:
         while (ci > 0)
         {
             int pi = (ci - 1) / 2;
+            // pi=parent index
+            //ci=child index
             if (v[pi] < v[ci]) //  yaha change karke min heap  ban jayegi
             {
                 swap(v[pi], v[ci]);
@@ -74,15 +77,9 @@ public:
         v.push_back(val);
         upheapify(v.size() - 1);
     }
-
     maxheap(vector<int> arr)
     {
         v = arr;
-        // for (int i = 0; i <arr.size(); i++)
-        // {
-        //     upheapify(i);
-        // } // NOT EFFICIENT
-        
         for (int i = arr.size()/2; i>=0; i--)
         {
             downheapify(i);
@@ -93,8 +90,11 @@ public:
 
 int main()
 {
-    vector<int> arr = {9,6,1,19,3,2,8,12,5};
+    // vector<int> arr= {9,6,1,19,3,2,8,12,5};
+    vector<int> arr = {2,8,5,3,9,1};
     maxheap h(arr);
+    h.display();
+    h.append(20);
     h.display();
     return 0;
 }
